@@ -17,8 +17,8 @@ $httpClient.get(url, function(error, response, data){
     let ip = jsonData.query
   body = {
     title: "𝑫𝒂𝒕𝒂 𝒇𝒓𝒐𝒎 𝒊𝒑-𝒂𝒑𝒊.𝒄𝒐𝒎",
-    content: `IP：${ip}\nloc：${country}\nisp：${isp} `,
-    icon: "globe.asia.australia.fill"
+    content: `IP：${ip}\nloc：${emoji} - ${country}\nisp：${isp} `,
+    icon: "xserve"
   }
   $done(body);
 });
