@@ -24,9 +24,9 @@ $httpClient.get(url, function(error, response, data){
     
   body = {
     title: "𝑫𝒂𝒕𝒂 𝒇𝒓𝒐𝒎 𝒊𝒑-𝒂𝒑𝒊.𝒄𝒐𝒎",
-    content: `IP: ${ip}\nloc: ${emoji}${country} - ${city}\nisp: ${isp}`,
+    content: `IP: ${ip}\nloc: ${emoji} | ${country} - ${city}\nisp: ${isp}`,
     icon: "xserve",
-    'icon-color': "#3CB371"
+    'icon-color': "#20B2AA"
   }
   $done(body);
 });
