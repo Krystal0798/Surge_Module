@@ -2,10 +2,12 @@
  */
 
 let subscriptions = [
-    {
-        link: "https://sub.nexconvert.com/downloadConfig/ShadowRocketImportService.aspx?t=ssn&urk=bca181fc-eb61-4206-8aa4-687863a437ca",
-        name: "𝗡𝗲𝘅𝗶𝘁𝗮𝗹𝗹𝘆🧁",
-        icon: ""
+	{
+	    "link": "https://sub.nexconvert.com/downloadConfig/ShadowRocketImportService.aspx?t=ssn&urk=bca181fc-eb61-4206-8aa4-687863a437ca",
+	     "name": " 🐝 𝗡𝗲𝘅𝗶𝘁𝗮𝗹𝗹𝘆",
+	     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/pudding.png"
+	},
+	{
 const $ = API("flowbit");
 if ($.read("subscriptions") !== undefined) {
     subscriptions = JSON.parse($.read("subscriptions"));
