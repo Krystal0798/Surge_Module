@@ -2,7 +2,7 @@
 
 let subscriptions = [
     {
-        link: "https://sub.nexconvert.com/downloadConfig/ShadowRocketImportService.aspx?t=ssn&urk=bca181fc-eb61-4206-8aa4-687863a437ca",
+        link: "https://sub.nexconvert.com/downloadConfig/NodeList.aspx?qx=orign&urk=bca181fc-eb61-4206-8aa4-687863a437ca",
         name: "𝗡𝗲𝘅𝗶𝘁𝗮𝗹𝗹𝘆🧁",
         icon: ""
     }, {
