@@ -2,7 +2,7 @@
 
 let subscriptions = [
     {
-        link: "https://sub.nexconvert.com/downloadConfig/NodeList.aspx?qx=orign&urk=bca181fc-eb61-4206-8aa4-687863a437ca",
+        link: "https://v.id9.cc/sub?target=surge&ver=4&url=https%3A%2F%2Fsub.nexconvert.com%2FdownloadConfig%2FNodeList.aspx%3Fqx%3Dorign%26urk%3Dbca181fc-eb61-4206-8aa4-687863a437ca&insert=false&exclude=Premium&append_type=true&emoji=true&list=true&tfo=false&scv=true&fdn=false&sort=false&udp=true",
         name: "𝗡𝗲𝘅𝗶𝘁𝗮𝗹𝗹𝘆🧁",
         icon: ""
     }, {
