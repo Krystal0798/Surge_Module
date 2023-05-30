@@ -2,7 +2,7 @@
 
 let subscriptions = [
     {
-        link: "https://sub.nexconvert.com/downloadConfig/NodeList.aspx?qx=orign&urk=bca181fc-eb61-4206-8aa4-687863a437ca",
+        link: "https://frxrvc.lol/?L2Rvd25sb2FkQ29uZmlnL05vZGVMaXN0LmFzcHg/cXg9b3JpZ24mdXJrPWJjYTE4MWZjLWViNjEtNDIwNi04YWE0LTY4Nzg2M2E0MzdjYSZtbT0xNjgxMzgmMmVmYjk4ZGFkNWEyNGEyMDkwMGQwOTQ3ZjZlM2Y=",
         name: "𝗡𝗲𝘅𝗶𝘁𝗮𝗹𝗹𝘆🧁",
         icon: ""
     }, {
