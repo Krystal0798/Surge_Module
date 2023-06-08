@@ -2,8 +2,8 @@
 
 let subscriptions = [
     {
-        link: "https://api.huacloud.xyz/sub?target=surge&ver=4&insert=true&emoji=true&tfo=true&udp=true&surge.doh=true&filename=Flower_Trojan&url=https%3A%2F%2Fapi.flowercloud.xyz%2Fosubscribe.php%3Fsid%3D50203%26token%3Dd49wdy6u0i6y",
-        name: "𝙁𝙡𝙤𝙬𝙚𝙧 𝘾𝙡𝙤𝙪𝙙",
+        link: "https://frxrvc.lol/?L2Rvd25sb2FkQ29uZmlnL05vZGVMaXN0LmFzcHg/cXg9b3JpZ24mdXJrPWJjYTE4MWZjLWViNjEtNDIwNi04YWE0LTY4Nzg2M2E0MzdjYSZtbT0xNjgxMzgmN2Q=",
+        name: "Nexitally",
         icon: ""
     }, {
         link: "",
