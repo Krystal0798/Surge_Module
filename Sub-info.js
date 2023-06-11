@@ -35,12 +35,6 @@
   hour = hour > 9 ? hour : "0" + hour;
   minutes = minutes > 9 ? minutes : "0" + minutes;
 
-  $done({
-    title: `${args.title} | ${bytesToSize(total)} | ${hour}:${minutes}`,
-    content: content.join("\n")  
-  });
-})();
-
 function getArgs() {
   return Object.fromEntries(
     $argument
