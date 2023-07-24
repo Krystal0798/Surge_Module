@@ -25,7 +25,7 @@
       content.push(`Replace：${resetDayLeft}天`);
     } else if (!resetDayLeft && expire) {
       if (/^[\d.]+$/.test(expire)) expire *= 1000;
-      content.push(`Become due：${formatTime(expire)}`);
+      content.push(`End：${formatTime(expire)}`);
     }
   }
 
@@ -152,5 +152,5 @@ function formatTime(time) {
   let year = dateObj.getFullYear();
   let month = dateObj.getMonth() + 1;
   let day = dateObj.getDate();
-  return "Become due：" + year + "." + month + "." + day + " ";
+  return "End：" + year + "." + month + "." + day + " ";
 }
