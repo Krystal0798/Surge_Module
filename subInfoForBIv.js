@@ -6,8 +6,8 @@ let subscriptions = [
         name: "Nexitally",
         icon: ""
     }, {
-        link: "",
-        name: "",
+        link: "https://hneko.top/api/v1/client/subscribe?token=c9e6cc48baf153b5532aa9691cfb50ec",
+        name: "𝑯𝒏𝒆𝒌𝒐 𝑪𝒍𝒐𝒖𝒅",
         icon: ""
     }
 ];
