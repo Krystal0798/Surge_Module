@@ -6,7 +6,7 @@ let subscriptions = [
         name: "Nexitally",
         icon: ""
     }, {
-        link: "https://hneko.top/api/v1/client/subscribe?token=c9e6cc48baf153b5532aa9691cfb50ec",
+        link: "https://sub.id9.cc/sub?target=surge&ver=4&url=https%3A%2F%2Fhneko.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Dc9e6cc48baf153b5532aa9691cfb50ec&insert=false&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&udp=true",
         name: "𝑯𝒏𝒆𝒌𝒐 𝑪𝒍𝒐𝒖𝒅",
         icon: ""
     }
