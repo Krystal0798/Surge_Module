@@ -6,8 +6,8 @@ let subscriptions = [
         name: "Nexitally",
         icon: ""
     }, {
-        link: "https://atomlantis.cloud/api/v1/client/subscribe?token=4494d33892710832bcab7115c5e904ff",
-        name: "atomlantis.cloud",
+        link: "",
+        name: "",
         icon: ""
     }
 ];
