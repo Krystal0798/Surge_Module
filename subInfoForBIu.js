@@ -6,7 +6,7 @@ let subscriptions = [
         name: "Nexitally",
         icon: ""
     }, {
-        link: "https://atomlantis.cloud/api/v1/client/subscribe?token=4494d33892710832bcab7115c5e904ff",
+        link: "https://api.nexconvert.com/sub?target=surge&ver=4&url=https%3A%2F%2Fatomlantis.cloud%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4494d33892710832bcab7115c5e904ff&insert=false&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&udp=true",
         name: "atomlantis.cloud",
         icon: ""
     }
