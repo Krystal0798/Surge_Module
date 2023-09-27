@@ -6,8 +6,8 @@ let subscriptions = [
         name: "Nexitally",
         icon: ""
     }, {
-        link: "",
-        name: "",
+        link: "https://api.huacloud.xyz/sub?target=surge&ver=4&insert=true&emoji=true&tfo=true&udp=true&surge.doh=true&filename=Flower_SS&url=https%3A%2F%2Fapi.flowercloud.xyz%2Fosubscribe.php%3Fsid%3D71795%26token%3DF47xlyKXxXNz%26sip002%3D1",
+        name: "FlowerCloud",
         icon: ""
     }
 ];
