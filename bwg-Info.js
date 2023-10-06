@@ -35,7 +35,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     minutes = minutes > 9 ? minutes : "0" + minutes;
 
     $done({
-        title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧 𝑰𝒏𝒇𝒐  | ${hour}:${minutes}`,
+        title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧𝐇𝐨𝐬𝐭  𝑰𝒏𝒇𝒐  | ${hour}:${minutes}`,
         content: content.join("\n"),
         icon: "server.rack",
         "icon-color": "#3498db",
