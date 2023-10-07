@@ -19,8 +19,8 @@ $httpClient.get(requestUrl, function(error, response, data){
     // 格式化内容
     let content = [
         `IP: ${ipAddresses}`,
-        `用量：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
-        `重置：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
+        `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
+        `Replace：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
         `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
