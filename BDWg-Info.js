@@ -35,7 +35,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     minutes = minutes > 9 ? minutes : "0" + minutes;
 
     $done({
-        title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧  𝑰𝒏𝒇𝒐  | 运行时间: ${hour}:${minutes}`,
+        title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧  𝑰𝒏𝒇𝒐  | 运行时间:  ${hour}:${minutes}`,
         content: content.join("\n"),
         icon: "aqi.medium",
         "icon-color": "#228B22",
