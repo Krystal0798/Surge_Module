@@ -21,7 +21,7 @@ $httpClient.get(requestUrl, function(error, response, data){
         `IP: ${ipAddresses}`,
         `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
         `Reset：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
-        `Renewal date：2033-08-14
+        `Renewal date：${2033-08-14}`,
         `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
