@@ -20,7 +20,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let content = [
         `IP: ${ipAddresses}`,
         `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
-        `Replace：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
+        `Reset：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
         `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
