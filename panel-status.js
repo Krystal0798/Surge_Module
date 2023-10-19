@@ -15,8 +15,8 @@ if ($trigger == "button") {
 	$notification.post("配置重载","配置重载成功","")
 };
 $done({
-    title:"𝗦𝗨𝗥𝗚𝗘ᴾᴿᴼ  已运行"+startTime,
-    content:"Mitm:"+icon_status(mitm_status.enabled)+"  Rewrite:"+icon_status(rewrite_status.enabled)+"  Scripting:"+icon_status(scripting_status.enabled),
+    title:"𝑺𝒖𝒓𝒈𝒆 𝑷𝒓𝒐  𝑨𝒍𝒓𝒆𝒂𝒅𝒚 𝒓𝒖𝒏"+startTime,
+    content:"Mitm:"+icon_status(mitm_status.enabled)+"    Rewrite:"+icon_status(rewrite_status.enabled)+"    Scripting:"+icon_status(scripting_status.enabled),
     icon: icon_s?"power.circle.fill":"info.circle.fill",
    "icon-color":icon_s?"#16A951":"#FF7500"
 });
@@ -45,9 +45,9 @@ if(days==0){
     if(minutes==0)return(`${seconds}秒`);
       return(`${minutes}分${seconds}秒`)
     }
-    return(`${hours}时${minutes}分${seconds}秒`)
+    return(`${hours}𝗵𝗿${minutes}𝗺𝗶𝗻${seconds}𝘀𝗲𝗰`)
   }else {
-        return(`${days}天${hours}时${minutes}分`)
+        return(`${days}𝗱𝗮𝘆${hours}𝗵𝗿${minutes}𝗺𝗶𝗻`)
 	}
 }
 function httpAPI(path = "", method = "POST", body = null) {
