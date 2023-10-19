@@ -45,9 +45,9 @@ if(days==0){
     if(minutes==0)return(`${seconds}秒`);
       return(`${minutes}分${seconds}秒`)
     }
-    return(`${hours}𝗵𝗿${minutes}𝗺𝗶𝗻${seconds}𝘀𝗲𝗰`)
+    return(`${hours}𝗵𝗿 ${minutes}𝗺𝗶𝗻 ${seconds}𝘀𝗲𝗰`)
   }else {
-        return(`${days}𝗱𝗮𝘆${hours}𝗵𝗿${minutes}𝗺𝗶𝗻`)
+        return(`${days}𝗱𝗮𝘆 ${hours}𝗵𝗿 ${minutes}𝗺𝗶𝗻`)
 	}
 }
 function httpAPI(path = "", method = "POST", body = null) {
