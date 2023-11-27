@@ -216,7 +216,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
           break;
       }
 
-    if (info.query == 'xxx.xxx.xxx.xxx') { //这里填写vps的IP地址
+    if (info.query == '154.17.1.168') { //这里填写vps的IP地址
       getVPSInfo.then((value) => {
         $done({
           title: getSSID() ?? getCellularInfo(),
