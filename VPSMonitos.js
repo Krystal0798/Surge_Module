@@ -278,7 +278,7 @@ const getVPSInfo = new Promise((resolve, reject) => {
     let opts = {
       url: 'https://www.dmit.io/clientarea.php',
       headers: {
-        'Cookie': '_ga=GA1.3.000; _gid=GA1.3.000; _gat=0; WHMCSP8D3Nbb7msEy=asdfasdfadsfasd; cf_clearance=adfasdfasdf.adsfasdfasdf-00000-0-111; WHMCSUser=1235413531251ffda628afe54df1f7a41; G_ENABLED_IDPS=google',
+        'Cookie': '_ga=GA1.3.382178952.1700617568; _gid=GA1.3.1583462240.1701061700; _gat=1; WHMCSAffiliateID=4007; cf_clearance=QB.Q1KYOgCF7ZhLyfJoY8GEbXHMDRWFipTnzfPuSRjY-1701113356-0-1-7e89bcc.7868844b.50e9c42c-160.0.0; WHMCSP8D3Nbb7msEy=tqclbopgok0s75l7o03u9s72e7; G_ENABLED_IDPS=google',
         'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Mobile/15E148 Safari/604.1',
       },
     }
