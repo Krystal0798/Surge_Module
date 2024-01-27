@@ -6,7 +6,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let jsonData = JSON.parse(data);
 
     // 获取所需的数据
-    let ipAddresses = hideLastTwoDigits(jsonData.ip_addresses.join(', ')); // 隐藏IP地址的最后两个数字
+    let ipAddresses = jsonData.ip_addresses.map(ip => hideLastTwoDigits(ip)).join(', ');
     let nodeDatacenter = jsonData.node_datacenter;
     let os = jsonData.os;
     let plan = jsonData.plan;
@@ -35,10 +35,10 @@ $httpClient.get(requestUrl, function(error, response, data){
     minutes = minutes > 9 ? minutes : "0" + minutes;
 
     $done({
-        title: `𝗕𝗮𝗻𝗱𝘄𝗮𝗴𝗼𝗻  𝑰𝒏𝒇𝒐  |  𝗥𝘂𝗻𝘁𝗶𝗺𝗲:  ${hour}:${minutes}`,
+        title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧  𝑰𝒏𝒇𝒐 |  𝐑𝐮𝐧𝐭𝐢𝐦𝐞:  ${hour}:${minutes}`,
         content: content.join("\n"),
-        icon: "aqi.medium",
-        "icon-color": "#228B22",
+        icon: "server.rack",
+        "icon-color": "#3498db",
     });
 });
 
@@ -58,11 +58,11 @@ function bytesToSize(bytes) {
 }
 
 function hideLastTwoDigits(ip) {
-    // 将IP地址分割成每个数字的数组
-    let ipParts = ip.split('.');
-    // 替换最后两个数字为"＊"
-    ipParts[ipParts.length - 1] = "＊＊";
-    ipParts[ipParts.length - 2] = "＊＊";
-    // 重新组合IP地址
-    return ipParts.join('.');
+    // Split the IP address into octets
+    let octets = ip.split('.');
+    // Replace last two digits with asterisks
+    octets[2] = '***';
+    octets[3] = '***';
+    // Join the octets back together
+    return octets.join('.');
 }
