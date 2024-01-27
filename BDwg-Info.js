@@ -60,9 +60,9 @@ function bytesToSize(bytes) {
 function hideLastTwoDigits(ip) {
     // 将IP地址分割成每个数字的数组
     let ipParts = ip.split('.');
-    // 替换最后两个数字为"XX"
-    ipParts[ipParts.length - 1] = "＊＊＊";
-    ipParts[ipParts.length - 2] = "＊＊＊";
+    // 替换最后两个数字为"＊"
+    ipParts[ipParts.length - 1] = "＊＊";
+    ipParts[ipParts.length - 2] = "＊＊";
     // 重新组合IP地址
     return ipParts.join('.');
 }
