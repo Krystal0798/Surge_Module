@@ -59,10 +59,10 @@ function bytesToSize(bytes) {
 
 function hideLastTwoDigits(ip) {
     // Split the IP address into octets
-    let octets = ip.split('.');
+    let octets = ip.split('');
     // Replace last two digits with asterisks
     octets[2] = '***';
     octets[3] = '***';
     // Join the octets back together
-    return octets.join('.');
+    return octets.join('');
 }
