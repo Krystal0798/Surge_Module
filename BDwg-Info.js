@@ -6,7 +6,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let jsonData = JSON.parse(data);
 
     // 获取所需的数据
-    let ipAddresses = jsonData.ip_addresses.join(', ');
+    let ipAddresses = hideLastTwoDigits(jsonData.ip_addresses.join(', ')); // 隐藏IP地址的最后两个数字
     let nodeDatacenter = jsonData.node_datacenter;
     let os = jsonData.os;
     let plan = jsonData.plan;
@@ -20,7 +20,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let content = [
         `IP: ${ipAddresses}`,
         `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
-        `Reset：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
+        `Resets：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
         `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
@@ -55,4 +55,14 @@ function bytesToSize(bytes) {
     if (bytes == 0) return '0 Byte';
     const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
+
+function hideLastTwoDigits(ip) {
+    // 将IP地址分割成每个数字的数组
+    let ipParts = ip.split('.');
+    // 替换最后两个数字为"XX"
+    ipParts[ipParts.length - 1] = "XX";
+    ipParts[ipParts.length - 2] = "XX";
+    // 重新组合IP地址
+    return ipParts.join('.');
 }
