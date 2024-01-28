@@ -6,7 +6,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let jsonData = JSON.parse(data);
 
     // 获取所需的数据
-    let ipAddresses = jsonData.ip_addresses.map(ip => hideLastTwoDigits(ip)).join(', ');
+    let ipAddresses = jsonData.ip_addresses.join(', ');
     let nodeDatacenter = jsonData.node_datacenter;
     let os = jsonData.os;
     let plan = jsonData.plan;
@@ -21,7 +21,6 @@ $httpClient.get(requestUrl, function(error, response, data){
         `IP: ${ipAddresses}`,
         `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
         `Resets：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
-        `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
         `Disk: ${planDisk}`,
@@ -55,14 +54,4 @@ function bytesToSize(bytes) {
     if (bytes == 0) return '0 Byte';
     const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-}
-
-function hideLastTwoDigits(ip) {
-    // Split the IP address into octets
-    let octets = ip.split('');
-    // Replace last two digits with asterisks
-    octets[2] = '***';
-    octets[3] = '***';
-    // Join the octets back together
-    return octets.join('');
 }
