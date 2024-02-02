@@ -59,6 +59,6 @@ function bytesToSize(bytes) {
 
 function hideLastTwoDigits(ip) {
     let parts = ip.split('.');
-    parts[3] = '*'; // Hide last two digits
+    parts[3] = '**'; // Hide last two digits
     return parts.join('.');
 }
