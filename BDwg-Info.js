@@ -61,8 +61,8 @@ function hideLastTwoDigits(ip) {
     // Split IP address by dots
     let parts = ip.split(".");
     // Replace last two digits with asterisks
-    parts[parts.length - 1] = "**";
-    parts[parts.length - 2] = "**";
+    parts[parts.length - 1] = "*";
+    parts[parts.length - 2] = "*";
     // Join the parts back together
     return parts.join(".");
 }
