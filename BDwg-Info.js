@@ -6,7 +6,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let jsonData = JSON.parse(data);
 
     // 获取所需的数据
-    let ipAddresses = jsonData.ip_addresses.map(ip => hideLastTwoDigits(ip)).join(', ');
+    let ipAddresses = jsonData.ip_addresses.map(ip => hideLastTwoDigits(ip)).join(', '); // Hide last two digits of each IP address
     let nodeDatacenter = jsonData.node_datacenter;
     let os = jsonData.os;
     let plan = jsonData.plan;
@@ -58,7 +58,11 @@ function bytesToSize(bytes) {
 }
 
 function hideLastTwoDigits(ip) {
-    let parts = ip.split('.');
-    parts[3] = '**'; // Hide last two digits
-    return parts.join('.');
+    // Split IP address by dots
+    let parts = ip.split(".");
+    // Replace last two digits with asterisks
+    parts[parts.length - 1] = "**";
+    parts[parts.length - 2] = "**";
+    // Join the parts back together
+    return parts.join(".");
 }
