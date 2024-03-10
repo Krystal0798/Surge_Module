@@ -6,7 +6,7 @@ let subscriptions = [
         name: "",
         icon: ""
     }, {
-        link: "https://api.huacloud.xyz/sub?target=surfboard&insert=true&emoji=true&tfo=true&udp=true&surge.doh=true&filename=Flower_SS&url=https%3A%2F%2Fapi.flowercloud.xyz%2Fosubscribe.php%3Fsid%3D71795%26token%3DF47xlyKXxXNz%26sip002%3D1",
+        link: "https://api.huacloud.xyz/sub?target=surge&ver=4&list=true&emoji=true&tfo=true&udp=true&url=https%3A%2F%2Fapi.flowercloud.xyz%2Fosubscribe.php%3Fsid%3D71795%26token%3DF47xlyKXxXNz%26sip002%3D1",
         name: "FlowerCloud",
         icon: ""
     }
