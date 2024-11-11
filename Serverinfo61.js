@@ -56,3 +56,10 @@ function bytesToSize(bytes) {
     const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
 }
+
+function hideLastTwoDigits(ip) {
+    // Split IP address by dots
+    let parts = ip.split(".");
+    // Join the parts back together
+    return parts.join(".");
+}
