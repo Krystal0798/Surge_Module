@@ -27,3 +27,32 @@ $httpClient.get(requestUrl, function(error, response, data){
         `Disk: ${planDisk}`,
         `RAM: ${planRam}`
     ];
+
+    let now = new Date();
+    let hour = now.getHours();
+    let minutes = now.getMinutes();
+    hour = hour > 9 ? hour : "0" + hour;
+    minutes = minutes > 9 ? minutes : "0" + minutes;
+
+    $done({
+        title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧  𝑰𝒏𝒇𝒐 |  𝐑𝐮𝐧𝐭𝐢𝐦𝐞:  ${hour}:${minutes}`,
+        content: content.join("\n"),
+        icon: "server.rack",
+        "icon-color": "#3498db",
+    });
+});
+
+function getArgs() {
+    return Object.fromEntries(
+        $argument
+            .split("&")
+            .map((item) => item.split("="))
+    );
+}
+
+function bytesToSize(bytes) {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
