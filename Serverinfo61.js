@@ -37,8 +37,8 @@ $httpClient.get(requestUrl, function(error, response, data){
     $done({
         title: `𝐁𝐚𝐧𝐝𝐰𝐚𝐠𝐨𝐧  𝑰𝒏𝒇𝒐 |  𝐑𝐮𝐧𝐭𝐢𝐦𝐞:  ${hour}:${minutes}`,
         content: content.join("\n"),
-        icon: "hand.point.up.braille",
-        "icon-color": "#FFDEAD",
+        icon: "server.rack",
+        "icon-color": "#3498db",
     });
 });
 
