@@ -17,36 +17,36 @@ $httpClient.get(requestUrl, function(error, response, data){
     }
 
     // 获取所需的数据
-    let ipAddresses = jsonData.ip_addresses.map(ip => hideLastTwoDigits(ip));
+    let ipAddresses = jsonData.ip_addresses;
 
     let ipv4List = ipAddresses.filter(ip => ip.includes('.')).join(', '); // 过滤出 IPv4
     let ipv6List = ipAddresses.filter(ip => ip.includes(':')).join(', '); // 过滤出 IPv6
 
     let ipDisplay = `IP: ${ipv4List}`;
     if (ipv6List) {
-        ipDisplay += `\n      ${ipv6List}`; // 换行并缩进 IPv6
+        ipDisplay += `\nIPv6: ${ipv6List}`; // IPv6 另起一行
     }
 
     let nodeDatacenter = jsonData.node_datacenter;
     let os = jsonData.os;
-    let plan = jsonData.plan;
+    let plan = jsonData.plan.trim(); // 去除 Plan 可能的多余空格
     let planRam = bytesToSize(jsonData.plan_ram);
     let planDisk = bytesToSize(jsonData.plan_disk);
     let dataCounter = jsonData.data_counter * jsonData.monthly_data_multiplier;
     let dataNextReset = new Date(jsonData.data_next_reset * 1000);
     let planMonthlyData = jsonData.plan_monthly_data * jsonData.monthly_data_multiplier;
 
-    // 格式化内容
+    // 格式化内容，去掉空余空格
     let content = [
         ipDisplay,
-        `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
-        `Resets：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
-        `Plan: ${plan}`,
+        `Dosage: ${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
+        `Resets: ${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
+        `Plan: ${plan}`, // Plan 直接紧接内容，无额外空行
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
         `Disk: ${planDisk}`,
         `RAM: ${planRam}`
-    ];
+    ].filter(line => line.trim() !== ''); // 过滤掉任何空行，确保紧凑排列
 
     let now = new Date();
     let hour = now.getHours();
@@ -74,13 +74,4 @@ function bytesToSize(bytes) {
     if (bytes === 0) return '0 Byte';
     const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
-}
-
-function hideLastTwoDigits(ip) {
-    let parts = ip.split(".");
-    if (parts.length === 4) {
-        parts[2] = "x";
-        parts[3] = "x";
-    }
-    return parts.join(".");
 }
