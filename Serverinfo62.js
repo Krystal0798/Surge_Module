@@ -29,24 +29,24 @@ $httpClient.get(requestUrl, function(error, response, data){
 
     let nodeDatacenter = jsonData.node_datacenter;
     let os = jsonData.os;
-    let plan = jsonData.plan.trim(); // 去除 Plan 可能的多余空格
+    let plan = jsonData.plan;
     let planRam = bytesToSize(jsonData.plan_ram);
     let planDisk = bytesToSize(jsonData.plan_disk);
     let dataCounter = jsonData.data_counter * jsonData.monthly_data_multiplier;
     let dataNextReset = new Date(jsonData.data_next_reset * 1000);
     let planMonthlyData = jsonData.plan_monthly_data * jsonData.monthly_data_multiplier;
 
-    // 格式化内容，去掉空余空格
+    // 格式化内容
     let content = [
         ipDisplay,
-        `Dosage: ${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
-        `Resets: ${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
-        `Plan: ${plan}`, // Plan 直接紧接内容，无额外空行
+        `Dosage：${bytesToSize(dataCounter)} | ${bytesToSize(planMonthlyData)}`,
+        `Resets：${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
+        `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
         `OS: ${os}`,
         `Disk: ${planDisk}`,
         `RAM: ${planRam}`
-    ].filter(line => line.trim() !== ''); // 过滤掉任何空行，确保紧凑排列
+    ];
 
     let now = new Date();
     let hour = now.getHours();
