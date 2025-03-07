@@ -22,7 +22,7 @@ $httpClient.get(requestUrl, function(error, response, data){
     let ipv4List = ipAddresses.filter(ip => ip.includes('.')).join(', '); // 过滤出 IPv4
     let ipv6List = ipAddresses.filter(ip => ip.includes(':')).join(', '); // 过滤出 IPv6
 
-    let ipDisplay = `IP: ${ipv4List}`;
+    let ipDisplay = `IPv4: ${ipv4List}`;
     if (ipv6List) {
         ipDisplay += `\nIPv6: ${ipv6List}`; // IPv6 另起一行
     }
