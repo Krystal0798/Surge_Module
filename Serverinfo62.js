@@ -19,12 +19,12 @@ $httpClient.get(requestUrl, function(error, response, data){
     // 获取所需的数据
     let ipAddresses = jsonData.ip_addresses;
 
-    let ipv4List = ipAddresses.filter(ip => ip.includes('.')).join(', '); // 获取 IPv4
-    let ipv6List = ipAddresses.filter(ip => ip.includes(':')).join(', '); // 获取 IPv6
+    let ipv4List = ipAddresses.filter(ip => ip.includes('.')).join(', '); // 过滤出 IPv4
+    let ipv6List = ipAddresses.filter(ip => ip.includes(':')).join(', '); // 过滤出 IPv6
 
-    let ipDisplay = `IP: ${ipv4List}`;
+    let ipDisplay = `IPv4: ${ipv4List}`;
     if (ipv6List) {
-        ipDisplay += `\n      ${ipv6List}`; // IPv6 另起一行，并缩进
+        ipDisplay += `\nIPv6: ${ipv6List}`; // IPv6 另起一行
     }
 
     let nodeDatacenter = jsonData.node_datacenter;
