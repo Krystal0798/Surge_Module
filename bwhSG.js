@@ -15,13 +15,11 @@ $httpClient.get(requestUrl, function(error, response, data){
     let dataCounter = jsonData.data_counter * jsonData.monthly_data_multiplier;
     let dataNextReset = new Date(jsonData.data_next_reset * 1000);
     let planMonthlyData = jsonData.plan_monthly_data * jsonData.monthly_data_multiplier;
-    let multiplier = jsonData.monthly_data_multiplier; // 获取流量倍率
 
     // 格式化内容
     let content = [
         `IP: ${ipAddresses}`,
         `Dosage: ${bytesToSize(dataCounter)} / ${bytesToSize(planMonthlyData)}`,
-        `Multiplier: x${multiplier.toFixed(2)}`, // 显示倍率，保留 2 位小数
         `Resets: ${dataNextReset.getFullYear()}年${dataNextReset.getMonth() + 1}月${dataNextReset.getDate()}日`,
         `Plan: ${plan}`,
         `IDC: ${nodeDatacenter}`,
