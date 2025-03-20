@@ -25,13 +25,13 @@ $httpClient.get(requestUrl, function (error, response, data) {
         return;
     }
 
-    // 处理 IP 地址
-    let ipAddresses = jsonData.ip_addresses ? jsonData.ip_addresses.map(ip => hideLastTwoDigits(ip)).join(', ') : "N/A";
+    // 直接显示完整 IP 地址
+    let ipAddresses = jsonData.ip_addresses ? jsonData.ip_addresses.join(', ') : "N/A";
     let nodeDatacenter = jsonData.node_datacenter || "Unknown";
     let os = jsonData.os || "Unknown";
     let plan = jsonData.plan || "Unknown";
 
-    // 处理内存、磁盘、流量信息
+    // 处理 RAM、SWAP、磁盘、流量信息
     let ramUsed = jsonData.vm_ram_usage || 0; // 已使用 RAM
     let planRam = jsonData.plan_ram ? bytesToSize(jsonData.plan_ram) : "Unknown"; // 总 RAM
     let swapUsed = jsonData.swap_usage || 0; // 已使用 SWAP
@@ -40,6 +40,7 @@ $httpClient.get(requestUrl, function (error, response, data) {
     let planDisk = jsonData.plan_disk ? bytesToSize(jsonData.plan_disk) : "Unknown"; // 总磁盘
     let dataCounter = jsonData.data_counter ? jsonData.data_counter * (jsonData.monthly_data_multiplier || 1) : 0;
     let planMonthlyData = jsonData.plan_monthly_data ? jsonData.plan_monthly_data * (jsonData.monthly_data_multiplier || 1) : 0;
+    let dataMultiplier = jsonData.monthly_data_multiplier || 1; // 流量倍率
     let dataNextReset = jsonData.data_next_reset ? new Date(jsonData.data_next_reset * 1000) : "N/A";
 
     // 计算使用百分比
@@ -49,10 +50,14 @@ $httpClient.get(requestUrl, function (error, response, data) {
         return percentage.toFixed(2) + "%";
     }
 
+    // 计算并格式化流量使用信息（精确到两位小数）
+    let formattedDataCounter = (dataCounter / (1024 * 1024 * 1024)).toFixed(2); // GB
+    let formattedPlanMonthlyData = (planMonthlyData / (1024 * 1024 * 1024)).toFixed(2); // GB
+    let bandwidthUsage = `${formattedDataCounter} GB / ${formattedPlanMonthlyData} GB (Multiplier: ×${dataMultiplier.toFixed(2)})`;
+
     let ramUsage = `${bytesToSize(ramUsed)} / ${planRam} (${calcPercentage(ramUsed, jsonData.plan_ram)})`;
     let swapUsage = `${bytesToSize(swapUsed)} / ${planSwap} (${calcPercentage(swapUsed, jsonData.swap_total)})`;
     let diskUsage = `${bytesToSize(diskUsed)} / ${planDisk} (${calcPercentage(diskUsed, jsonData.plan_disk)})`;
-    let bandwidthUsage = `${bytesToSize(dataCounter)} / ${bytesToSize(planMonthlyData)} (${calcPercentage(dataCounter, planMonthlyData)})`;
 
     // 格式化内容
     let content = [
