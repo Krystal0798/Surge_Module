@@ -1,14 +1,19 @@
 /*
 作者：keywos wuhu@wuhu_zzz 整点猫咪
-已去除 Warp 相关逻辑，仅显示：
-- GPT 是否可用（仅 ✔️ / ✖️）
-- 区域（国旗 + 国家代码）
+改动：
+- 去除 Warp 相关逻辑
+- GPT 文案仅 ✔️ / ✖️
+- 标题自动去掉“状态”两字
+- 区域显示为：国旗 + " • " + 国家大写缩写（如：🇯🇵 • JP）
 
 自定义参数通过 argument 传递，不同参数用 & 链接：
 icon：支持 ChatGPT 时的图标
 iconerr：不支持 ChatGPT 时的图标
 icon-color：正常能使用时图标颜色
 iconerr-color：不能使用时图标颜色
+
+示例：
+argument=title=ChatGPT状态&icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
 */
 
 let url = "http://chat.openai.com/cdn-cgi/trace";
@@ -59,26 +64,31 @@ $httpClient.get(url, function(error, response, data) {
     return acc;
   }, {});
 
-  let locCode = cf.loc;
-  let loc = getCountryFlagEmoji(locCode) + locCode;
+  // 国家代码统一转大写
+  let locCode = (cf.loc || "").toUpperCase();
+  // 区域显示为：国旗 • JP
+  let loc = `${getCountryFlagEmoji(locCode)} • ${locCode}`;
 
   // 判断 ChatGPT 是否支持该国家/地区
   let supported = tf.indexOf(locCode) !== -1;
   let gpt, iconUsed, iconCol;
 
   if (supported) {
-    gpt = "GPT: ✔️"; // 删除“可用”
+    gpt = "GPT: ✔️";
     iconUsed = icon || undefined;
     iconCol = iconColor || undefined;
   } else {
-    gpt = "GPT: ✖️"; // 删除“不可用”
+    gpt = "GPT: ✖️";
     iconUsed = iconerr || undefined;
     iconCol = iconerrColor || undefined;
   }
 
+  // 标题自动去掉“状态”两字（即便你 argument 里写的是 ChatGPT状态）
+  let finalTitle = titlediy ? titlediy.replace(/状态/g, "") : "ChatGPT";
+
   // 返回给面板 / 通知的数据
   let body = {
-    title: titlediy ? titlediy : 'ChatGPT',
+    title: finalTitle,
     content: `${gpt}   区域: ${loc}`,
     icon: iconUsed,
     'icon-color': iconCol
