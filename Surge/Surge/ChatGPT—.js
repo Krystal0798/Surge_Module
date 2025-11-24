@@ -4,7 +4,7 @@
 - 去除 Warp 相关逻辑
 - GPT 文案仅 ✔️ / ✖️
 - 标题自动去掉“状态”两字
-- 区域显示为：国旗 + " • " + 国家大写缩写（如：🇯🇵 • JP）
+- 区域只显示国旗（不再显示 • JP 这样的缩写）
 
 自定义参数通过 argument 传递，不同参数用 & 链接：
 icon：支持 ChatGPT 时的图标
@@ -64,10 +64,10 @@ $httpClient.get(url, function(error, response, data) {
     return acc;
   }, {});
 
-  // 国家代码统一转大写
+  // 国家代码统一转大写（虽然不再显示，但逻辑保留）
   let locCode = (cf.loc || "").toUpperCase();
-  // 区域显示为：国旗 • JP
-  let loc = `${getCountryFlagEmoji(locCode)} • ${locCode}`;
+  // 区域只显示国旗
+  let loc = getCountryFlagEmoji(locCode);
 
   // 判断 ChatGPT 是否支持该国家/地区
   let supported = tf.indexOf(locCode) !== -1;
@@ -83,7 +83,7 @@ $httpClient.get(url, function(error, response, data) {
     iconCol = iconerrColor || undefined;
   }
 
-  // 标题自动去掉“状态”两字（即便你 argument 里写的是 ChatGPT状态）
+  // 标题自动去掉“状态”两字
   let finalTitle = titlediy ? titlediy.replace(/状态/g, "") : "ChatGPT";
 
   // 返回给面板 / 通知的数据
