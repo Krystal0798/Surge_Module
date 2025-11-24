@@ -1,7 +1,7 @@
 /*
 作者：keywos wuhu@wuhu_zzz 整点猫咪
 已去除 Warp 相关逻辑，仅显示：
-- GPT 是否可用
+- GPT 是否可用（仅 ✔️ / ✖️）
 - 区域（国旗 + 国家代码）
 
 自定义参数通过 argument 传递，不同参数用 & 链接：
@@ -9,11 +9,6 @@ icon：支持 ChatGPT 时的图标
 iconerr：不支持 ChatGPT 时的图标
 icon-color：正常能使用时图标颜色
 iconerr-color：不能使用时图标颜色
-
-示例：
-argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
-
-⚠️ 想要自定义图标，必须本地保存脚本，在主配置中引用。
 */
 
 let url = "http://chat.openai.com/cdn-cgi/trace";
@@ -72,11 +67,11 @@ $httpClient.get(url, function(error, response, data) {
   let gpt, iconUsed, iconCol;
 
   if (supported) {
-    gpt = "GPT: ✔️ 可用";
+    gpt = "GPT: ✔️"; // 删除“可用”
     iconUsed = icon || undefined;
     iconCol = iconColor || undefined;
   } else {
-    gpt = "GPT: ✖️ 不可用";
+    gpt = "GPT: ✖️"; // 删除“不可用”
     iconUsed = iconerr || undefined;
     iconCol = iconerrColor || undefined;
   }
