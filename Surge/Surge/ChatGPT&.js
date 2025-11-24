@@ -77,7 +77,7 @@ $httpClient.get(url, function(error, response, data) {
 
   let body = {
     title: finalTitle,
-    content: `${gpt}   Ctry: ${loc}`,  // ★ 已替换为 Ctry
+    content: `${gpt}       Ctry: ${loc}`,  // ★ 已替换为 Ctry
     icon: iconUsed,
     'icon-color': iconCol
   };
