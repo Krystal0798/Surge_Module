@@ -5,7 +5,7 @@
 - GPT 文案仅 ✔️ / ✖️
 - 标题自动去掉“状态”两字，并把 ChatGPT 美化为 𝓒𝓱𝓪𝓽𝓖𝓟𝓣
 - 区域只显示国旗
-- 将 Location 改为 Country
+- 将 Country 改为 Ctry
 */
 
 let url = "http://chat.openai.com/cdn-cgi/trace";
@@ -77,7 +77,7 @@ $httpClient.get(url, function(error, response, data) {
 
   let body = {
     title: finalTitle,
-    content: `${gpt}   Country: ${loc}`,  // ★ 已替换为 Country
+    content: `${gpt}   Ctry: ${loc}`,  // ★ 已替换为 Ctry
     icon: iconUsed,
     'icon-color': iconCol
   };
