@@ -4,16 +4,8 @@
 - 去除 Warp 相关逻辑
 - GPT 文案仅 ✔️ / ✖️
 - 标题自动去掉“状态”两字，并把 ChatGPT 美化为 𝓒𝓱𝓪𝓽𝓖𝓟𝓣
-- 区域只显示国旗（不再显示 • JP 这样的缩写）
-
-自定义参数通过 argument 传递，不同参数用 & 链接：
-icon：支持 ChatGPT 时的图标
-iconerr：不支持 ChatGPT 时的图标
-icon-color：正常能使用时图标颜色
-iconerr-color：不能使用时图标颜色
-
-示例：
-argument=title=ChatGPT状态&icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
+- 区域只显示国旗
+- 将 Location 改为 Country
 */
 
 let url = "http://chat.openai.com/cdn-cgi/trace";
@@ -64,12 +56,9 @@ $httpClient.get(url, function(error, response, data) {
     return acc;
   }, {});
 
-  // 国家代码统一转大写（虽然不再显示，但逻辑保留）
   let locCode = (cf.loc || "").toUpperCase();
-  // 区域只显示国旗
   let loc = getCountryFlagEmoji(locCode);
 
-  // 判断 ChatGPT 是否支持该国家/地区
   let supported = tf.indexOf(locCode) !== -1;
   let gpt, iconUsed, iconCol;
 
@@ -83,14 +72,12 @@ $httpClient.get(url, function(error, response, data) {
     iconCol = iconerrColor || undefined;
   }
 
-  // 标题自动去掉“状态”两字，并将 ChatGPT 替换为花体 𝓒𝓱𝓪𝓽𝓖𝓟𝓣
   let finalTitle = titlediy ? titlediy.replace(/状态/g, "") : "ChatGPT";
   finalTitle = finalTitle.replace(/ChatGPT/g, "𝓒𝓱𝓪𝓽𝓖𝓟𝓣");
 
-  // 返回给面板 / 通知的数据
   let body = {
     title: finalTitle,
-    content: `${gpt}   区域: ${loc}`,
+    content: `${gpt}   Country: ${loc}`,  // ★ 已替换为 Country
     icon: iconUsed,
     'icon-color': iconCol
   };
