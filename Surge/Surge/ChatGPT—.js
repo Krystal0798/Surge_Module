@@ -3,7 +3,7 @@
 改动：
 - 去除 Warp 相关逻辑
 - GPT 文案仅 ✔️ / ✖️
-- 标题自动去掉“状态”两字
+- 标题自动去掉“状态”两字，并把 ChatGPT 美化为 𝓒𝓱𝓪𝓽𝓖𝓟𝓣
 - 区域只显示国旗（不再显示 • JP 这样的缩写）
 
 自定义参数通过 argument 传递，不同参数用 & 链接：
@@ -83,8 +83,9 @@ $httpClient.get(url, function(error, response, data) {
     iconCol = iconerrColor || undefined;
   }
 
-  // 标题自动去掉“状态”两字
+  // 标题自动去掉“状态”两字，并将 ChatGPT 替换为花体 𝓒𝓱𝓪𝓽𝓖𝓟𝓣
   let finalTitle = titlediy ? titlediy.replace(/状态/g, "") : "ChatGPT";
+  finalTitle = finalTitle.replace(/ChatGPT/g, "𝓒𝓱𝓪𝓽𝓖𝓟𝓣");
 
   // 返回给面板 / 通知的数据
   let body = {
